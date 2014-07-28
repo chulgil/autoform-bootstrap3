@@ -61,7 +61,7 @@ AutoForm for Bootstrap3
 ```html
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
@@ -124,13 +124,13 @@ AutoForm for Bootstrap3
 ## 셈플
 ```html
 <div class="ec-auto-form" title="기본정보">
-    <h6>필수 타입 <span class="red">【필수】</span></h6>
+    <h6>필수 타입</h6>
     <p type="text" id="pid" val="" rules="req:true" hint="필수정보를 입력하세요."></p>
-    <h6>코드 타입 <span class="red">【필수】</span> (영숫자 32자 이내)</h6>
+    <h6>코드 타입  (영숫자 32자 이내)</h6>
     <p type="text" id="pid1" val="" rules="type:code,req:true,max:32" hint="(예) 001-123、apple_01-b"></p>
-    <h6>문자열 타입 (문자 100자 이내) </h6>
+    <h6>문자열 타입 (문자 100자 이내)</h6>
     <p type="text" id="pid2" val="\" rules="max:100" hint="상품명을 입력해주세요."></p>
-    <h6>가격 타입 <span class="red">【필수】</span> (숫자 9자 이내) </h6>
+    <h6>가격 타입  (숫자 9자 이내)</h6>
     <p type="text" id="pid3" val="" mark="₩" rules="type:num,req:true,max:9" hint=""></p>
     <h6>날짜 타입</h6><p type="text" id="pid4" val="" rules="type:date"></p>
     <h6>숫자 타입 (10이상 100이하)</h6><p type="text" id="pid5" val="" rules="type:dig,min:10,max:100"></p>
@@ -143,13 +143,13 @@ AutoForm for Bootstrap3
         option='{"001":"라디오아이템1","002":"라디오아이템2","003":"라디오아이템3","004":"라디오아이템4"}'></p>
     <h6>라디오 박스 디폴트지정</h6><p id="pid7_1" type="radio" val="" default="002"
         option='{"001":"라디오아이템1","002":"라디오아이템2 디폴트","003":"라디오아이템3","004":"라디오아이템4"}'></p>
-    <h6>라디오 박스 <span class="red">【필수】</span></h6><p id="pid7_2" type="radio" val="" rules="req:true"
+    <h6>라디오 박스 </h6><p id="pid7_2" type="radio" val="" rules="req:true"
         option='{"001":"라디오아이템1","002":"라디오아이템2","003":"라디오아이템3"}'></p>
     <h6>체크 박스</h6><p id="pid8" type="check"  val="" default="001"
         option='{"001":"체크아이템1","002":"체크아이템2","003":"체크아이템3","004":"체크아이템4"}'></p>
     <h6>체크 박스 디폴트지정</h6><p id="pid8_1" type="check"  val="" default="003,001"
         option='{"001":"체크아이템1 디폴트","002":"체크아이템2","003":"체크아이템3 디폴트","004":"체크아이템4"}'></p>
-    <h6>체크 박스  <span class="red">【필수】</span></h6><p id="pid8_2" type="check"  val="" rules="req:true"
+    <h6>체크 박스  </h6><p id="pid8_2" type="check"  val="" rules="req:true"
         option='{"001":"체크아이템1","002":"체크아이템2","003":"체크아이템3 디폴트"}'></p>
 </div>
 ```
