@@ -33,7 +33,7 @@ AutoForm for Bootstrap3
 - [기본폼 정의](#기본폼정의)
 - [TYPE의 종류](#Type의종류)
 - [폼체크 종류](#폼체크종류)
-- [셈플](#셈플)
+- [샘플](#샘플)
 
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -121,7 +121,7 @@ AutoForm for Bootstrap3
     <p type="text" id="" val="" rules="max:2"'></p>            
 ```
   
-## 셈플
+## 샘플
 ```html
 <div class="ec-auto-form" title="기본정보">
     <h6>필수 타입</h6>
