@@ -9,8 +9,7 @@
 
 # Jquery Start
 $ ->
-  console.log "DOM is ready!!!"
-
+  # console.log "DOM is ready!!!"
   settings = {} #체크폼 데이터 초기화
 
   # ------------------------------------------------------------ #
@@ -58,10 +57,9 @@ $ ->
         error.insertAfter element
     invalidHandler : (error,element) ->
       if element.numberOfInvalids() # 에러체크가 있는경우
-        console.log obj=element.errorList[0].element
+        obj=element.errorList[0].element
         # Bootstrap3버튼일 경우
         if $(obj).attr("class") is "bootstrap-drop hide"
-          console.log "d"
           # DROP 박스의 버튼을 포커스로 지정
           $(obj).closest(".dropdown").find("button").focus()
 
@@ -360,7 +358,7 @@ class MakeFormFactory
     return unless text = obj.attr("rules")
 
     if check=@FormUtil.convJSON(text) # Json형태 오브젝트로 변환
-      console.log "체크데이터의 룰을 생성  : Jquery Validator Roules"
+      # console.log "체크데이터의 룰을 생성  : Jquery Validator Roules"
       rules = {}
       rules['required']=true if x=check.req
       rules['required']=true if x=check.required
