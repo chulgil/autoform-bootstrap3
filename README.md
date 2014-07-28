@@ -33,6 +33,7 @@ AutoForm for Bootstrap3
 - [기본폼 정의](#기본폼정의)
 - [TYPE의 종류](#Type의종류)
 - [폼체크 종류](#폼체크종류)
+- [셈플](#셈플)
 
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -118,4 +119,35 @@ AutoForm for Bootstrap3
     <p type="text" id="" val="" rules="max:2"'></p>            
 ```
   
-   
+## 셈플
+```html
+<div class="ec-auto-form" title="기본정보">
+    <h6>필수 타입 <span class="red">【필수】</span></h6>
+    <p type="text" id="pid" val="" rules="req:true" hint="필수정보를 입력하세요."></p>
+    <h6>코드 타입 <span class="red">【필수】</span> (영숫자 32자 이내)</h6>
+    <p type="text" id="pid1" val="" rules="type:code,req:true,max:32" hint="(예) 001-123、apple_01-b"></p>
+    <h6>문자열 타입 (문자 100자 이내) </h6>
+    <p type="text" id="pid2" val="\" rules="max:100" hint="상품명을 입력해주세요."></p>
+    <h6>가격 타입 <span class="red">【필수】</span> (숫자 9자 이내) </h6>
+    <p type="text" id="pid3" val="" mark="₩" rules="type:num,req:true,max:9" hint=""></p>
+    <h6>날짜 타입</h6><p type="text" id="pid4" val="" rules="type:date"></p>
+    <h6>숫자 타입 (10이상 100이하)</h6><p type="text" id="pid5" val="" rules="type:dig,min:10,max:100"></p>
+    <h6>셀렉트 박스</h6>
+    <p id="pid6" type="select" val="" rules="req:true"
+        option='{"":"선택해주세요","001":"셀렉트아이템1","002":"셀렉트아이템2","003":"셀렉트아이템3"}'></p>
+    <h6>셀렉트 박스 디폴트지정</h6><p id="pid6_1" type="select" val="" default="001"
+        option='{"":"선택해주세요","001":"셀렉트아이템1 디폴트","002":"셀렉트아이템2","003":"셀렉트아이템3"}'></p>
+    <h6>라디오 박스 </h6><p id="pid7" type="radio" val=""
+        option='{"001":"라디오아이템1","002":"라디오아이템2","003":"라디오아이템3","004":"라디오아이템4"}'></p>
+    <h6>라디오 박스 디폴트지정</h6><p id="pid7_1" type="radio" val="" default="002"
+        option='{"001":"라디오아이템1","002":"라디오아이템2 디폴트","003":"라디오아이템3","004":"라디오아이템4"}'></p>
+    <h6>라디오 박스 <span class="red">【필수】</span></h6><p id="pid7_2" type="radio" val="" rules="req:true"
+        option='{"001":"라디오아이템1","002":"라디오아이템2","003":"라디오아이템3"}'></p>
+    <h6>체크 박스</h6><p id="pid8" type="check"  val="" default="001"
+        option='{"001":"체크아이템1","002":"체크아이템2","003":"체크아이템3","004":"체크아이템4"}'></p>
+    <h6>체크 박스 디폴트지정</h6><p id="pid8_1" type="check"  val="" default="003,001"
+        option='{"001":"체크아이템1 디폴트","002":"체크아이템2","003":"체크아이템3 디폴트","004":"체크아이템4"}'></p>
+    <h6>체크 박스  <span class="red">【필수】</span></h6><p id="pid8_2" type="check"  val="" rules="req:true"
+        option='{"001":"체크아이템1","002":"체크아이템2","003":"체크아이템3 디폴트"}'></p>
+</div>
+```
