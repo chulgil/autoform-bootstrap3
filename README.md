@@ -42,8 +42,15 @@ AutoForm for Bootstrap3
   1. autoform-bootstrap3를 다운로드 받습니다.
   2. html파일에 /lib/form_generator.js를 include합니다.
   3. html파일에 자동생성할 폼태그를 입력합니다.
-
-
+```html
+<script src="lib/form_generator.js"></script>
+<form>
+    <div class="ec-auto-form" title="기본정보">
+    <h6>입력항목1</h6>
+    <p type="text" id="pid" val="" rules="req:true" hint="필수정보를 입력하세요."></p>
+    </div>
+</form>
+```
 
 ## 주의사항
   1. Jquery가 import되어 있어야 합니다.
@@ -59,7 +66,7 @@ AutoForm for Bootstrap3
 
 
 ## 기본폼정의
-  1.기본적으로 <form></form>태그 안에 정의합니다.
+  1.기본적으로 form태그 안에 정의합니다.
   2.기본 폼 클래스인 ec-auto-form와 폼 타이틀을 정의합니다.
   3.항목생성 태그를 정의함으로서 폼이 생성됩니다.<p type=""></p>
 ```html
