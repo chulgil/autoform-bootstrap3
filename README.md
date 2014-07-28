@@ -28,11 +28,11 @@ AutoForm for Bootstrap3
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
-- [사용방법](#사용방법)
-- [주의사항](#주의사항)
-- [기본폼정의](#기본폼정의)
-- [TYPE의 종류](#TYPE의 종류)
-- [폼체크 종류](#폼체크 종류)
+- [사용 방법](#사용방법)
+- [주의 사항](#주의사항)
+- [기본폼 정의](#기본폼정의)
+- [TYPE의 종류](#Type의종류)
+- [폼체크 종류](#폼체크종류)
 
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -71,7 +71,7 @@ AutoForm for Bootstrap3
     </form>
 ```
 
-## Type의 종류
+## Type의종류
   
   각 OPTION은 JSON형식으로 지정합니다.
   일반텍스트의 경우는 "키:값,키:값" 으로도 설정가능합니다.
@@ -97,7 +97,7 @@ AutoForm for Bootstrap3
     <p type="radio" id="" val="" option='{"":"선택해주세요","01":"아이템1","02":"아이템2","03":"아이템3"}'></p>
 ```
 
-## 폼체크 종류
+## 폼체크종류
 
   ※Jquery-validate의 체크사양참조 http://jqueryvalidation.org/
 ```html
