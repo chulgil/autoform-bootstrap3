@@ -30,23 +30,22 @@ AutoForm for Bootstrap3
 
 - [사용방법](#사용방법)
 - [주의사항](#주의사항)
-
 - [기본폼정의](#기본폼정의)
+- [TYPE의 종류](#TYPE의 종류)
 - [폼체크 종류](#폼체크 종류)
-
 
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-## 사용방법 :
+## 사용방법
   1. autoform-bootstrap3를 다운로드 받습니다.
   2. html파일에 /lib/form_generator.js를 include합니다.
   3. html파일에 자동생성할 폼태그를 입력합니다.
 
 
 
-## 주의사항 :
+## 주의사항
   1. Jquery가 import되어 있어야 합니다.
   2. bootstrap3 css/js가 import되어 있어야 합니다.
   3. Jquery Validator가 import되어 있어야 합니다.
