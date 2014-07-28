@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="ko"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>자동폼생성</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <style>
+        body { padding-top: 25px;padding-bottom: 25px;}
+        .anchor{ /* 메뉴 앵커 (편집 폼 포커스이동 )*/
+            display: block;
+            height: 52px; /*same height as header*/
+            margin-top: -52px; /*same height as header*/
+            visibility: hidden;
+        }
+        .form_header {padding-bottom: 25px} /* 폼 헤더 */
+        .form_header_logo {width:180px;height:100px;} /* 폼 헤더 로고 */
+        .ec-auto-form {display: none !important;} /* 자동생성폼 HTML 숨기기 */
+        .red {color:red;}
+    </style>
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar">
+<!--[if lt IE 7]>
+<p class="browsehappy">오래된 브라우져 사용시 보안 취약점이 있을 수 있습니다. 본 서비스에서는 IE7이하 브라우져 지원은 하지 않고있습니다.
+    브라우져를 <a href="http://browsehappy.com/?locale=ko">최신 버젼으로 업데이트</a>해주세요.</p>
+<![endif]-->
+
+
+<!--폼 네비게이터 설정-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation!!!!!!</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#page-top">자동폼생성</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="page-scroll"><a href="#page-top">편집페이지</a></li>
+                <li class="page-scroll"><a href="#scroll1">기본정보</a></li>
+                <li class="page-scroll"><a href="#scroll2">상세정보</a></li>
+                <li class="page-scroll"><a href="#scroll3">기타정보</a></li>
+                <li class="page-scroll"><a href="#scroll4">이미지</a></li>
+                <li class="page-scroll"><a href="#scroll5">재고정보</a></li>
+            </ul>
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+</nav>
+
+<!--본문 헤더 컨텐츠 설정-->
+<div class="jumbotron form_header">
+    <div class="form-inline">
+        <div class="form-group">
+            <img src="http://tomgurney.org/assets/images/Bootstrap%20Logo.png" alt="..."
+                 class="img-thumbnail form_header_logo">
+        </div>
+        <div class="form-group">
+            <h5> ■ 템플릿명：XXXXXXXXXX</h5>
+            <h5> ■ 카테고리：제1카테고리 > 제2카테고리 > 제3카테고리 > 제4카테고리</h5>
+            <h5> ■ 등록일：2014/07/03 14:23:20 / 갱신일：2014/07/03 14:23:20</h5>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <form>
+
+        <section class="anchor" id="scroll1"></section>
+        <div class="ec-auto-form" title="기본정보">
+            <h6>필수 타입 <span class="red">【필수】</span></h6>
+            <p type="text" id="pid" val="" rules="req:true" hint="필수정보를 입력하세요."></p>
+            <h6>코드 타입 <span class="red">【필수】</span> (영숫자 32자 이내)</h6>
+            <p type="text" id="pid1" val="" rules="type:code,req:true,max:32" hint="(예) 001-123、apple_01-b"></p>
+            <h6>문자열 타입 (문자 100자 이내) </h6>
+            <p type="text" id="pid2" val="\" rules="max:100" hint="상품명을 입력해주세요."></p>
+            <h6>가격 타입 <span class="red">【필수】</span> (숫자 9자 이내) </h6>
+            <p type="text" id="pid3" val="" mark="₩" rules="type:num,req:true,max:9" hint=""></p>
+            <h6>날짜 타입</h6><p type="text" id="pid4" val="" rules="type:date"></p>
+            <h6>숫자 타입 (10이상 100이하)</h6><p type="text" id="pid5" val="" rules="type:dig,min:10,max:100"></p>
+            <h6>셀렉트 박스</h6><p id="pid6" type="select" val="" rules="req:true"
+                              option='{"":"선택해주세요","001":"셀렉트아이템1","002":"셀렉트아이템2","003":"셀렉트아이템3","004":"셀렉트아이템4"}'></p>
+            <h6>셀렉트 박스 디폴트지정</h6><p id="pid6_1" type="select" val="" default="001"
+                                    option='{"":"선택해주세요","001":"셀렉트아이템1 디폴트","002":"셀렉트아이템2","003":"셀렉트아이템3","004":"셀렉트아이템4"}'></p>
+            <h6>라디오 박스 </h6><p id="pid7" type="radio" val=""
+                               option='{"001":"라디오아이템1","002":"라디오아이템2","003":"라디오아이템3","004":"라디오아이템4"}'></p>
+            <h6>라디오 박스 디폴트지정</h6><p id="pid7_1" type="radio" val="" default="002"
+                                    option='{"001":"라디오아이템1","002":"라디오아이템2 디폴트","003":"라디오아이템3","004":"라디오아이템4"}'></p>
+            <h6>라디오 박스 <span class="red">【필수】</span></h6><p id="pid7_2" type="radio" val="" rules="req:true"
+                                                            option='{"001":"라디오아이템1","002":"라디오아이템2","003":"라디오아이템3","004":"라디오아이템4"}'></p>
+            <h6>체크 박스</h6><p id="pid8" type="check"  val="" default="001"
+                             option='{"001":"체크아이템1","002":"체크아이템2","003":"체크아이템3","004":"체크아이템4"}'></p>
+            <h6>체크 박스 디폴트지정</h6><p id="pid8_1" type="check"  val="" default="003,001"
+                                   option='{"001":"체크아이템1 디폴트","002":"체크아이템2","003":"체크아이템3 디폴트","004":"체크아이템4"}'></p>
+            <h6>체크 박스  <span class="red">【필수】</span></h6><p id="pid8_2" type="check"  val="" rules="req:true"
+                                                            option='{"001":"체크아이템1","002":"체크아이템2","003":"체크아이템3 디폴트","004":"체크아이템4"}'></p>
+        </div>
+
+        <section class="anchor" id="scroll2"></section>
+        <div class="ec-auto-form" title="상세정보" >
+            <h6>설명문 타입(TEXTAREA)</h6>
+            <p id="pid20" type="textarea" rows="1" val="" hint="전 키워드를 입력해주세요." ></p>
+            <p id="pid21" type="textarea" rows="3" ></p>
+            <p id="pid22" type="textarea" rows="1" val="" hint="후 키워드를 입력해주세요."></p>
+            <h6>설명문 타입(TEXTAREA)</h6>
+            <p id="pid23" type="textarea" rows="1" val="" hint="전 키워드를 입력해주세요."></p>
+            <p id="pid24" type="textarea" rows="3" ></p>
+            <p id="pid25" type="textarea" rows="1" val="" hint="후 키워드를 입력해주세요."></p>
+            <h6>설명문 타입(TEXTAREA)</h6>
+            <p id="pid26" type="textarea" rows="1" val="" hint="전 키워드를 입력해주세요."></p>
+            <p id="pid27" type="textarea" rows="3" ></p>
+            <p id="pid28" type="textarea" rows="1" val="" hint="후 키워드를 입력해주세요."></p>
+            <h6>설명문 타입(TEXTAREA)</h6>
+            <p id="pid29" type="textarea" rows="3" ></p>
+            <h6>설명문 타입(TEXTAREA)</h6>
+            <p id="pid30" type="textarea" rows="10" val="" hint="후 키워드를 입력해주세요."></p>
+        </div>
+
+        <section class="anchor" id="scroll3"></section>
+        <div class="ec-auto-form" title="기타정보" >
+            <h6>복수 타입1(가로행)</h6>
+        <span class="ec-form-col">
+            <p type="select" id="etc1_1" val="" default="001" option='{"":"선택해주세요","001":"셀렉트아이템1","002":"셀렉트아이템2"}'></p>
+            <p type="text" id="etc1_2" val="" size="60" hint="정보를 입력하세요."></p>
+        </span>
+            <h6>복수 타입1(가로행)</h6>
+        <span class="ec-form-col">
+            <p type="select" id="etc2_1" val="" option='{"":"선택해주세요","001":"셀렉트아이템1","002":"셀렉트아이템2"}'></p>
+            <p type="select" id="etc2_2" val="" option='{"":"선택해주세요","001":"셀렉트아이템1","002":"셀렉트아이템2"}'></p>
+        </span>
+            <h6>복수 타입1(가로행)</h6>
+        <span class="ec-form-col">
+            <p type="select" id="etc3_1" val="" option='{"":"선택해주세요","001":"셀렉트아이템1","002":"셀렉트아이템2"}'></p>
+            <p type="check" id="etc3_2" val="" option='{"":"선택해주세요","001":"셀렉트아이템1","002":"셀렉트아이템2"}'></p>
+        </span>
+            <h6>복수 타입2(가로행)</h6>
+        <span class="ec-form-col">
+            <p type="select" id="etc4_1"  val="" option='{"":"선택해주세요","001":"셀렉트아이템1","002":"셀렉트아이템2"}'></p>
+            <p type="radio" id="etc4_2"  val="" option='{"001":"라디오아이템1","002":"라디오아이템2"}'></p>
+            <p type="text" id="etc4_3"  val="" mark="₩" target="etc4_2-001" size="9" rules="type:code,min:3,max:4"></p>
+        </span>
+        </div>
+
+
+        <section class="anchor" id="scroll4"></section>
+        <div class="ec-auto-form" title="이미지" >
+        <span class="ec-form-img">
+            <p id="tm1" type="thumbnail" src="http://tomgurney.org/assets/images/Bootstrap%20Logo.png" alt="..."></p>
+            <span class="ec-form-row">
+                <p id="img1d" type="text" val="" mark="URL1" rules="type:url" hint="(예)http://www.rakuten.ne.jp/gold/hansoku/xxx.jpg"></p>
+                <p id="url1d" type="text" val="" mark="ALT1" rules="max:200" hint="(예)상품 ALT"></p>
+            </span>
+        </span>
+        <span class="ec-form-img">
+            <p id="tm2" type="thumbnail" src="http://tomgurney.org/assets/images/Bootstrap%20Logo.png"></p>
+            <span class="ec-form-row">
+                <p id="img2d" type="text" val="" mark="URL1" rules="type:url" hint="(예)http://www.rakuten.ne.jp/gold/hansoku/xxx.jpg"></p>
+                <p id="url2d" type="text" val="" mark="ALT1" rules="max:200" hint="(예)상품 ALT"></p>
+            </span>
+        </span>
+        <span class="ec-form-img">
+            <p id="tm3" type="thumbnail" src="http://tomgurney.org/assets/images/Bootstrap%20Logo.png"></p>
+            <span class="ec-form-row">
+                <p id="img3d" type="text" val="" mark="URL1" rules="type:url" hint="(예)http://www.rakuten.ne.jp/gold/hansoku/xxx.jpg"></p>
+                <p id="url3d" type="text" val="" mark="ALT1" rules="max:200" hint="(예)상품 ALT"></p>
+            </span>
+        </span>
+        </div>
+
+
+        <section class="anchor" id="scroll5"></section>
+        <div class="ec-auto-form" title="재고구성정보" >
+            <h6>입력항목</h6><p type="text" id="test1" val="" hint="필수정보를 입력하세요."></p>
+            <h6>입력항목</h6><p type="text" id="test2" val="" hint="필수정보를 입력하세요."></p>
+            <h6>입력항목</h6><p type="text" id="test3" val="" hint="필수정보를 입력하세요."></p>
+            <h6>입력항목</h6><p type="text" id="test4" val="" hint="필수정보를 입력하세요."></p>
+            <h6>입력항목</h6><p type="text" id="test5" val="" hint="필수정보를 입력하세요."></p>
+            <h6>입력항목</h6><p type="text" id="test6" val="" hint="필수정보를 입력하세요."></p>
+            <h6>입력항목</h6><p type="text" id="test7" val="" hint="필수정보를 입력하세요."></p>
+            <h6>입력항목</h6><p type="text" id="test8" val="" hint="필수정보를 입력하세요."></p>
+            <h6>입력항목</h6><p type="text" id="test9" val="" hint="필수정보를 입력하세요."></p>
+            <h6>입력항목</h6><p type="text" id="test10" val="" hint="필수정보를 입력하세요."></p>
+            <h6>입력항목</h6><p type="text" id="test11" val="" hint="필수정보를 입력하세요."></p>
+        </div>
+
+        <button type="submit" class="btn btn-primary center-block">저장하기</button>
+
+
+    </form>
+
+    <hr>
+    <footer>
+        <p>&copy; VNCODENAVI 2014</p>
+    </footer>
+
+</div>
+<!-- /container -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+<script src="lib/jquery.validate/localization/messages_ko.js"></script>
+<script src="lib/form_generator.js"></script>
+
+</body>
+</html>
+
