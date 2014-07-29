@@ -73,8 +73,8 @@ AutoForm for Bootstrap3
   2.기본 폼 클래스인 ec-auto-form와 폼 타이틀을 정의합니다.
   3.항목생성 태그를 정의함으로서 폼이 생성됩니다.<p type=""></p>
 ```html
-    <form>
-        <div class="ec-auto-form" title="기본정보">
+    <form class="ec-auto-form">
+        <div class="ec-auto-input" title="기본정보">
         <h6>입력항목1</h6>
         <p type="text" id="pid" val="" rules="req:true" hint="필수정보를 입력하세요."></p>
         </div>
@@ -123,7 +123,7 @@ AutoForm for Bootstrap3
   
 ## 샘플
 ```html
-<div class="ec-auto-form" title="기본정보">
+<div class="ec-auto-input" title="기본정보">
     <h6>필수 타입</h6>
     <p type="text" id="pid" val="" rules="req:true" hint="필수정보를 입력하세요."></p>
     <h6>코드 타입  (영숫자 32자 이내)</h6>

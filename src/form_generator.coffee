@@ -15,9 +15,8 @@ $ ->
   # ------------------------------------------------------------ #
   # 1. 타입별 폼생성
   # ------------------------------------------------------------ #
-  $ec_input_form = $("div.ec-auto-form")
+  $ec_input_form = $("div.ec-auto-input")
   for form in $ec_input_form
-
     mkFactory = new MakeFormFactory(form)
     # MakeInputBox 그룹전체 폼생성
     mkFactory.makeRowForm("span")
@@ -27,12 +26,14 @@ $ ->
       # 오브젝트 합치기
       settings = $.extend({}, settings,add)
       #console.log settings
-    $(form).removeClass("ec-auto-form")
+  # 초기 로딩시 폼태그가 표시되므로 hide지정한 클래스를 삭제
+  $("form").removeClass("ec-auto-form")
+  $("form").addClass("ec-auto-form-check")
 
   # ------------------------------------------------------------ #
   # 2. 폼 체크 자동생성 : http://jqueryvalidation.org/
   # ------------------------------------------------------------ #
-  $("#form1").validate
+  $("form.ec-auto-form-check").validate
     rules : settings
     highlight: (element) ->
       $(element).closest(".form-check-item").addClass "has-error"
@@ -55,7 +56,6 @@ $ ->
       else
         error.insertAfter element
     invalidHandler : (error,element) ->
-      console.log "dsf"
       if element.numberOfInvalids() # 에러체크가 있는경우
         obj=element.errorList[0].element
         # Bootstrap3버튼일 경우
