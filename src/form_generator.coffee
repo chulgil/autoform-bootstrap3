@@ -32,8 +32,7 @@ $ ->
   # ------------------------------------------------------------ #
   # 2. 폼 체크 자동생성 : http://jqueryvalidation.org/
   # ------------------------------------------------------------ #
-  $("form").validate
-    ignore: [],
+  $("#form1").validate
     rules : settings
     highlight: (element) ->
       $(element).closest(".form-check-item").addClass "has-error"
@@ -56,12 +55,17 @@ $ ->
       else
         error.insertAfter element
     invalidHandler : (error,element) ->
+      console.log "dsf"
       if element.numberOfInvalids() # 에러체크가 있는경우
         obj=element.errorList[0].element
         # Bootstrap3버튼일 경우
         if $(obj).attr("class") is "bootstrap-drop hide"
           # DROP 박스의 버튼을 포커스로 지정
           $(obj).closest(".dropdown").find("button").focus()
+
+    submitHandler: (form) ->
+      return form
+
 
 
   # ------------------------------------------------------------ #
@@ -141,7 +145,6 @@ class MakeInputBox
       if @type is "select" or @type is "radio" or @type is "check"
         throw @type+' BOX를 생성할 OPTION이 지정되지 않았습니다.' unless @option
         @option = @FormUtil.convJSON(@option) # Json형태 오브젝트로 변환
-        @selected = @option[Object.keys(@option)[0]] # 디폴셀렉트옵션 : 옵션의 첫번째 오브젝트를 지정한다.
         throw @type+' BOX OPTION의 JSON형식에 오브젝트배열이 있습니다. :' if typeof @selected is 'object'
       if @type is "check" #체크박스 복수선택시
         @checked = @FormUtil.convJSON(@default) if @default # Json형태 오브젝트로 변환
@@ -245,8 +248,10 @@ class MakeInputBox
       # 체크된 값이 있는경우
       _checked = ''
       if @checked
-        findKeys = @checked.filter (x) -> x is key
-        _checked='checked' if findKeys[0]
+        #findKeys = @checked.filter (x) -> x is key
+        #_checked='checked' if findKeys[0]
+        for row,item of @checked
+          _checked='checked' if item is key
 
       tag +=' <div class="form-group"><div class="input-group input-group-sm">'
       tag +='  <span class="input-group-addon"><input type="checkbox" name="'+@id+'" '+_checked+'></span>'
@@ -329,22 +334,24 @@ class MakeFormFactory
         row = $(row)
         @_makeCheckRules(row)
         mk = new MakeInputBox(row)
-      catch e
-        console.error e
-      finally
         # 입력박스 아이템에 타겟지정이 있는경우 : 해당타겟으로 이동시킨다.
         if target=row.attr("target")
           target_row = $('[key="'+target+'"]')
           target_row.html(mk.makeInput())
           target_row.contents().unwrap()
-        # 입력박스 아이템이 COL(세로)그룹지정인 경우 : 각 입력폼을 그룹으로 감싼다.
+          # 입력박스 아이템이 COL(세로)그룹지정인 경우 : 각 입력폼을 그룹으로 감싼다.
         else if row.parent().hasClass("ec-form-col")
-          row.wrap('<div class="form-group">'+mk.makeInput()+'</div>')
-        # 일반 입력박스 아이템인 경우 : 입력박스만 생성한다.
+          row.wrap('<div class="form-group"></div>')
+          row.parent().append(mk.makeInput())
+          # 일반 입력박스 아이템인 경우 : 입력박스만 생성한다.
         else
           row.wrap('<div class="form-check-item"></div>')
-          row.wrap(mk.makeInput())
-        # 생선전의 HTML커스텀 입력박스 태그를 삭제한다.
+          row.parent().append(mk.makeInput())
+#          row.wrap(mk.makeInput())
+      # 생선전의 HTML커스텀 입력박스 태그를 삭제한다.
+      catch e
+        console.error ":"+e
+      finally
         row.detach()
 
 
@@ -399,7 +406,8 @@ class FormUtil
     return "" unless text # 값이 공백인 경우는 종료
     try
     # 1:정식 JSON오브젝트 문자열인 경우 jQuery.parseJSON로 처리
-      return obj if obj=jQuery.parseJSON(text)
+      obj = JSON.stringify(eval '(' + text + ')')
+      return obj if obj=JSON.parse obj
 
     # 비지니스 로직 예외처리 : Json형식이 아닐경우
     catch e
@@ -416,7 +424,8 @@ class FormUtil
           json_string += ',' if i > 0
           json_string += temp
         json_string = '{'+json_string+'}'
-        return jQuery.parseJSON(json_string)
+        obj = JSON.stringify(eval '(' + json_string + ')')
+        return JSON.parse obj
 
       # 3:TEXT (TEST1,TEST2) 의 경우 구분자(,)로 json 배열형식으로 변환
       else
