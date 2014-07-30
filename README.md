@@ -61,12 +61,14 @@ AutoForm for Bootstrap3
 ```html
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
-```
 
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+```
+## 브라우져 호환성
+  1. IE7이하는 지원하지 않습니다.(HTML5 및 Jquery호환성 저하 )
+  2. 기본적으로 Bootstap3템플릿에 대한 모듈이므로 브라우져 호환성은 Bootstrap과 JqueryValidator를 참조하셔야 합니다.
 
 ## 기본폼정의
   1.기본적으로 form태그 안에 정의합니다.
